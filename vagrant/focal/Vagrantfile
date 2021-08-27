@@ -3,21 +3,19 @@ $script_lamp = <<-SCRIPT
 apt update -y && \
 apt install -y apache2 && \
 apt install -y mysql-server && \
-apt install -y php && \
+apt install -y php
 SCRIPT
 
 #maquina
 Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/focal64"
-  config.vm.network "forwarded_port", guest: 80, host:8089
+  config.vm.network "forwarded_port", guest: 80, host:8085
   config.vm.network "public_network", type: "dhcp"
   config.vm.provision "shell", inline: $script_lamp
-  config.vm.synced_folder "./configs", "/configs"
-
 #hardware
     config.vm.provider "virtualbox" do |v|
-    v.memory = 3024
-    v.cpus = 4
+    v.memory = 2024
+    v.cpus = 2
     v.name = "LAMP"
   end
 end
