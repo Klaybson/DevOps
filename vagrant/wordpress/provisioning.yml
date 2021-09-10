@@ -1,7 +1,13 @@
 ---
 - hosts: all
   tasks:
-   - apt:
-     name: php5
-     state: latest
-    become: yes
+    - name: 'Instala PHP5'
+      apt:
+        name: php5
+        state: latest
+      become: yes
+    - name: 'Istala o Apache2'
+      apt:
+        name: apache2
+        state: latest
+      become: yes
