@@ -15,4 +15,3 @@
          - php5-mysql
         state: latest
       become: yes
-    
