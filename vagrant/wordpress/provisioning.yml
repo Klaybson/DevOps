@@ -11,3 +11,8 @@
         name: apache2
         state: latest
       become: yes
+    - name: 'Istala o modphp'
+      apt:
+        name: libapache2-mod-php5
+        state: latest
+      become: yes
